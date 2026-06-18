@@ -39,13 +39,30 @@ and verified by the author using AI assistants as the implementation engine.
 ## Quickstart — verify any claim in minutes
 
 ```bash
+git clone https://github.com/JamesCrasher/supplied-not-discovered.git
+cd supplied-not-discovered
 pip install numpy
-python crack15_identifiability.py        # any script; each prints a dated VERIFIED block
-# run them all:
-for f in crack*.py; do echo "== $f =="; python "$f" | tail -4; done
 ```
 
-Every script is CPU-only, dependency-free beyond `numpy`, and self-verifying.
+**Run a single experiment** (each prints a dated `VERIFIED` block):
+
+```bash
+python crack15_identifiability.py
+```
+
+**Run all 16 — pick your shell** (from inside the repo folder):
+
+- **macOS / Linux (bash):**
+  ```bash
+  for f in crack*.py; do echo "== $f =="; python "$f"; done
+  ```
+- **Windows (PowerShell):**
+  ```powershell
+  Get-ChildItem crack*.py | ForEach-Object { Write-Host "== $($_.Name) =="; python $_.Name }
+  ```
+
+Every script is CPU-only, dependency-free beyond `numpy`, and self-verifying. (Tip: you must be *inside* the
+repo folder — `cd` into it first — or Python won't find the files.)
 
 ## The sixteen experiments
 
